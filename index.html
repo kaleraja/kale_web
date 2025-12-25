@@ -2,217 +2,235 @@
 <html lang="en" light-mode="dark">
 
 <head>
-  <title>Khem Raj | Home</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khem Raj | Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="assets/images/favicon.ico" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
-  <link rel="stylesheet" href="assets/css/preloader.css">
-  <link rel="stylesheet" href="assets/css/home.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/preloader.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- 🎆 POPUP + CONFETTI + FIREWORKS -->
-  <style>
-    .ny-popup {
-      position: fixed;
-      top: -150px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, #ff9800, #ff1744);
-      color: #fff;
-      padding: 18px 36px;
-      border-radius: 0 0 18px 18px;
-      z-index: 99999;
-      font-family: 'Poppins', sans-serif;
-      font-size: 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-      overflow: hidden;
-      text-align: center;
-    }
+    <!-- 🎆 POPUP + CONFETTI + FIREWORKS -->
+    <style>
+        /* Popup container */
+        .ny-popup {
+            position: fixed;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ff9800, #ff1744);
+            color: #fff;
+            padding: 18px 36px;
+            border-radius: 0 0 18px 18px;
+            z-index: 999999 !important;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            overflow: visible;
+        }
 
-    .ny-popup.show {
-      animation: slideDown 0.9s ease forwards;
-    }
+        .ny-popup.show {
+            animation: slideDown 0.9s ease forwards;
+        }
 
-    .ny-text {
-      animation: floatText 2s ease-in-out infinite;
-      white-space: nowrap;
-      position: relative;
-      z-index: 2;
-    }
+        .ny-text {
+            animation: floatText 2s ease-in-out infinite;
+            white-space: nowrap;
+            position: relative;
+            z-index: 2;
+        }
 
-    .ny-close {
-      margin-left: 12px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+        .ny-close {
+            margin-left: 12px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-    .ny-timer {
-      font-size: 12px;
-      opacity: 0.9;
-      margin-top: 4px;
-    }
+        .ny-timer {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
 
-    @keyframes slideDown {
-      from { top: -150px; }
-      to { top: 0; }
-    }
+        @keyframes slideDown {
+            from {
+                top: -150px;
+            }
 
-    @keyframes floatText {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
-      100% { transform: translateY(0); }
-    }
+            to {
+                top: 0;
+            }
+        }
 
-    /* 🎉 CONFETTI */
-    .confetti {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      opacity: 0.9;
-      animation: confettiFall linear infinite;
-      z-index: 1;
-    }
+        @keyframes floatText {
+            0% {
+                transform: translateY(0);
+            }
 
-    @keyframes confettiFall {
-      0% { transform: translateY(-20px) rotate(0deg); }
-      100% { transform: translateY(160px) rotate(360deg); }
-    }
+            50% {
+                transform: translateY(6px);
+            }
 
-    /* 🎆 FIREWORKS */
-    .firework {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      animation: explode 1.5s ease-out infinite;
-    }
+            100% {
+                transform: translateY(0);
+            }
+        }
 
-    @keyframes explode {
-      0% {
-        box-shadow:
-          0 0 #fff,
-          0 0 #ffd700,
-          0 0 #ff4081,
-          0 0 #00e5ff;
-        opacity: 1;
-      }
-      100% {
-        box-shadow:
-          0 -60px #fff,
-          50px 0 #ffd700,
-          -50px 0 #ff4081,
-          0 60px #00e5ff;
-        opacity: 0;
-      }
-    }
-  </style>
+        /* 🎉 CONFETTI */
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            opacity: 0.9;
+            animation: confettiFall linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(160px) rotate(360deg);
+            }
+        }
+
+        /* 🎆 FIREWORKS */
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            animation: explode 1.5s ease-out infinite;
+        }
+
+        @keyframes explode {
+            0% {
+                box-shadow: 0 0 #fff, 0 0 #ffd700, 0 0 #ff4081, 0 0 #00e5ff;
+                opacity: 1;
+            }
+
+            100% {
+                box-shadow: 0 -60px #fff, 50px 0 #ffd700, -50px 0 #ff4081, 0 60px #00e5ff;
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body class="no-scroll-preload">
 
-<!-- Loader -->
-<div class="loader-container">
-  <div class="atom">
-    <div class="electron"></div>
-    <div class="electron-alpha"></div>
-    <div class="electron-omega"></div>
-  </div>
-</div>
-
-<!-- 🎉 NEW YEAR POPUP -->
-<div id="newYearPopup" class="ny-popup">
-  <div class="ny-text">
-    🎉 Happy New Year 2026 🎉
-    <span class="ny-close" onclick="closePopup()">✕</span>
-  </div>
-  <div class="ny-timer">
-    Auto closing in <span id="countdown">15</span>s
-  </div>
-</div>
-
-<!-- Particles -->
-<div id="home">
-  <section class="center">
-    <div id="particles-js"></div>
-  </section>
-</div>
-
-<center>
-  <div class="text col-sm-6" style="margin-top:140px;">
-    <span class="animated-text" data-words="Hello, It's me Khem Raj Dangi"></span>
-    <img src="assets/images/Hand.gif" width="35">
-
-    <div class="center">
-      <img src="assets/images/khem.png" class="rounded-circle" width="200" height="200">
-      <br><br>
-      <span class="animated-text" data-words="Lets get connected..."></span>
+    <!-- Loader -->
+    <div class="loader-container">
+        <div class="atom">
+            <div class="electron"></div>
+            <div class="electron-alpha"></div>
+            <div class="electron-omega"></div>
+        </div>
     </div>
-  </div>
-</center>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-<script src="assets/js/particle.js"></script>
+    <!-- 🎉 NEW YEAR POPUP -->
+    <div id="newYearPopup" class="ny-popup">
+        <div class="ny-text">
+            🎉 Happy New Year 2026 🎉
+            <span class="ny-close" onclick="closePopup()">✕</span>
+        </div>
+        <div class="ny-timer">
+            Auto closing in <span id="countdown">15</span>s
+        </div>
+    </div>
 
-<!-- 🎆 POPUP SCRIPT -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const popup = document.getElementById("newYearPopup");
-  const counter = document.getElementById("countdown");
+    <!-- Particles -->
+    <div id="home">
+        <section class="center">
+            <div id="particles-js"></div>
+        </section>
+    </div>
 
-  popup.classList.add("show");
-  createConfetti(popup);
-  createFireworks(popup);
+    <center>
+        <div class="text col-sm-6" style="margin-top:140px;">
+            <span class="animated-text" data-words="Hello, It's me Khem Raj Dangi"></span>
+            <img src="assets/images/Hand.gif" width="35">
 
-  let timeLeft = 15;
-  const timer = setInterval(() => {
-    timeLeft--;
-    counter.textContent = timeLeft;
+            <div class="center">
+                <img src="assets/images/khem.png" class="rounded-circle" width="200" height="200">
+                <br><br>
+                <span class="animated-text" data-words="Lets get connected..."></span>
+            </div>
+        </div>
+    </center>
 
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      closePopup();
-    }
-  }, 1000);
-});
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="assets/js/particle.js"></script>
 
-function closePopup() {
-  document.getElementById("newYearPopup").style.display = "none";
-}
+    <!-- 🎆 POPUP SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const popup = document.getElementById("newYearPopup");
+            const counter = document.getElementById("countdown");
 
-/* Confetti */
-function createConfetti(container) {
-  const colors = ["#fff", "#ffd700", "#00e5ff", "#ff4081", "#ffeb3b"];
-  for (let i = 0; i < 25; i++) {
-    const c = document.createElement("div");
-    c.className = "confetti";
-    c.style.left = Math.random() * 100 + "%";
-    c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-    c.style.animationDuration = (Math.random() * 2 + 1) + "s";
-    container.appendChild(c);
-  }
-}
+            // Show popup
+            setTimeout(() => {
+                popup.classList.add("show");
+                createConfetti(popup);
+                createFireworks(popup);
 
-/* Fireworks */
-function createFireworks(container) {
-  for (let i = 0; i < 3; i++) {
-    const f = document.createElement("div");
-    f.className = "firework";
-    f.style.left = (20 + i * 30) + "%";
-    f.style.top = "60px";
-    f.style.animationDelay = i * 0.5 + "s";
-    container.appendChild(f);
-  }
-}
-</script>
+                // Countdown 15s
+                let timeLeft = 15;
+                const timer = setInterval(() => {
+                    timeLeft--;
+                    counter.textContent = timeLeft;
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        closePopup();
+                    }
+                }, 1000);
+            }, 500);
+        });
+
+        function closePopup() {
+            const popup = document.getElementById("newYearPopup");
+            popup.style.display = "none";
+        }
+
+        // Confetti
+        function createConfetti(container) {
+            const colors = ["#fff", "#ffd700", "#00e5ff", "#ff4081", "#ffeb3b"];
+            for (let i = 0; i < 25; i++) {
+                const c = document.createElement("div");
+                c.className = "confetti";
+                c.style.left = Math.random() * 100 + "%";
+                c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                c.style.animationDuration = (Math.random() * 2 + 1) + "s";
+                container.appendChild(c);
+            }
+        }
+
+        // Fireworks
+        function createFireworks(container) {
+            for (let i = 0; i < 3; i++) {
+                const f = document.createElement("div");
+                f.className = "firework";
+                f.style.left = (20 + i * 30) + "%";
+                f.style.top = "60px";
+                f.style.animationDelay = i * 0.5 + "s";
+                container.appendChild(f);
+            }
+        }
+    </script>
 
 </body>
+
 </html>
+
 
 
 
