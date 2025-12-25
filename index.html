@@ -14,11 +14,11 @@
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- 🎆 POPUP + CONFETTI + FIREWORKS -->
+  <!-- 🎆 NEW YEAR POPUP + CONFETTI + FIREWORKS -->
   <style>
     .ny-popup {
       position: fixed;
-      top: -150px;
+      top: -140px;
       left: 50%;
       transform: translateX(-50%);
       background: linear-gradient(135deg, #ff9800, #ff1744);
@@ -45,19 +45,13 @@
     }
 
     .ny-close {
-      margin-left: 12px;
+      margin-left: 15px;
       cursor: pointer;
       font-weight: bold;
     }
 
-    .ny-timer {
-      font-size: 12px;
-      opacity: 0.9;
-      margin-top: 4px;
-    }
-
     @keyframes slideDown {
-      from { top: -150px; }
+      from { top: -140px; }
       to { top: 0; }
     }
 
@@ -87,6 +81,7 @@
       position: absolute;
       width: 6px;
       height: 6px;
+      background: transparent;
       border-radius: 50%;
       animation: explode 1.5s ease-out infinite;
     }
@@ -129,9 +124,6 @@
     🎉 Happy New Year 2026 🎉
     <span class="ny-close" onclick="closePopup()">✕</span>
   </div>
-  <div class="ny-timer">
-    Auto closing in <span id="countdown">15</span>s
-  </div>
 </div>
 
 <!-- Particles -->
@@ -163,22 +155,9 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const popup = document.getElementById("newYearPopup");
-  const counter = document.getElementById("countdown");
-
   popup.classList.add("show");
   createConfetti(popup);
   createFireworks(popup);
-
-  let timeLeft = 15;
-  const timer = setInterval(() => {
-    timeLeft--;
-    counter.textContent = timeLeft;
-
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      closePopup();
-    }
-  }, 1000);
 });
 
 function closePopup() {
@@ -213,8 +192,3 @@ function createFireworks(container) {
 
 </body>
 </html>
-
-
-
-
-
