@@ -5,59 +5,70 @@
     <title>Khem Raj | Home</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Khem Raj Dangi from Tulsipur Dang" />
+    <meta name="description" content="Khem Raj Dangi from Tulsipur Dang" />
+    <link id='favicon' rel="icon" href="assets/images/favicon.ico" type="image/png">
+    <meta name="robots" content="index,follow" />
+    <meta name="Googlebot" content="index,follow" />
+    <meta name="AdsBot-Google" content="index,follow" />
+    <meta property="og:site_name" content="www.khemrajdangi.com.np">
+    <meta property="og:title" content="Khem Raj Dangi | Home">
+    <meta property="og:description" content="Khem Raj Dangi from Tulsipur Dang">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="www.khemrajdangi.com.np">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="www.khemrajdangi.com.np">
+    <meta name="application-name" content="Khem Raj Dangi | Home" />
+    <meta name="apple-mobile-web-app-title" content="Khem Raj Dangi | Home" />
+    <meta name="summary" content="Khem Raj Dangi from Tulsipur Dang" />
 
-    <meta name="keywords" content="Khem Raj Dangi from Tulsipur Dang">
-    <meta name="description" content="Khem Raj Dangi from Tulsipur Dang">
-
-    <link rel="icon" href="assets/images/favicon.ico" type="image/png">
-
-    <!-- Bootstrap & Fonts -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-    <!-- Custom CSS -->
+    <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="assets/css/preloader.css">
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- 🎉 NEW YEAR POPUP CSS -->
+    <link id='favicon' rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script defer src="./assets/js/dynamicTitle.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M11CMZ12Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-M11CMZ12Q');
+    </script>
+
+    <!-- New Year Popup CSS -->
     <style>
         .ny-popup {
             position: absolute;
-            top: 270px;
+            top: 10px; /* adjust if needed */
             left: 50%;
             transform: translateX(-50%);
-            width: 300px;
+            width: 280px;
             background: rgba(0,0,0,0.85);
             color: #fff;
             padding: 15px 20px;
-            border-radius: 15px;
+            border-radius: 12px;
             text-align: center;
             z-index: 9999;
             animation: fadeIn 0.6s ease;
         }
-
-        .ny-popup h4 {
-            margin: 0;
-            font-weight: bold;
-        }
-
-        .ny-popup p {
-            font-size: 14px;
-            margin: 8px 0;
-        }
-
+        .ny-popup h4 { margin: 0; font-weight: bold; }
+        .ny-popup p { font-size: 14px; margin: 5px 0; }
         .ny-close {
             position: absolute;
-            top: 6px;
-            right: 12px;
-            font-size: 20px;
+            top: 4px;
+            right: 8px;
+            font-size: 18px;
             cursor: pointer;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translate(-50%, -10px); }
             to { opacity: 1; transform: translate(-50%, 0); }
@@ -66,90 +77,85 @@
 </head>
 
 <body class="no-scroll-preload">
-
-<!-- Loader -->
-<div class="loader-container">
-    <div class="atom">
-        <div class="electron"></div>
-        <div class="electron-alpha"></div>
-        <div class="electron-omega"></div>
-    </div>
-</div>
-
-<!-- Particles -->
-<div id="home">
-    <section class="center">
-        <div id="particles-js"></div>
-    </section>
-</div>
-
-<center>
-<div class="text col-sm-6" style="margin-top: 140px; position: relative;">
-
-    <span class="animated-text" data-words="Hello, It's me Khem Raj Dangi"></span>
-    <span class="wave">
-        <img src="assets/images/Hand.gif" width="35px">
-    </span>
-
-    <br><br>
-
-    <!-- PROFILE IMAGE -->
-    <img src="assets/images/khem.png" alt="" class="rounded-circle" height="200" width="200">
-
-    <!-- 🎉 NEW YEAR POPUP -->
-    <div id="newYearPopup" class="ny-popup">
-        <span class="ny-close" onclick="closePopup()">×</span>
-        <h4>🎉 Happy New Year 2026 🎉</h4>
-        <p>Wishing you happiness, success & prosperity</p>
-        <small>Closing in <span id="countdown">15</span>s</small>
+    <!-- loader -->
+    <div class="loader-container">
+        <div class="atom">
+            <div class="electron"></div>
+            <div class="electron-alpha"></div>
+            <div class="electron-omega"></div>
+        </div>
     </div>
 
-    <br><br>
-
-    <span class="animated-text" data-words="Lets get connected..."></span>
-
-    <div id="socials-container">
-        <img src="assets/images/youtube.png" class="icon"
-            onclick="location.href='https://www.youtube.com/@kaleRaja08'">
-        <img src="assets/images/facebook.png" class="icon"
-            onclick="location.href='https://www.facebook.com/leo.khem.8'">
-        <img src="assets/images/discord.png" class="icon"
-            onclick="location.href='https://discord.gg/SkMfuFCcap'">
-        <img src="assets/images/insta.png" class="icon"
-            onclick="location.href='https://www.instagram.com/leo.khem.005/'">
-        <img src="assets/images/email.png" class="icon"
-            onclick="location.href='mailto:khemrajdangi08@gmail.com'">
+    <!--Particles effect-->
+    <div id="home">
+        <section class="center">
+            <div id="particles-js"></div>
+        </section>
     </div>
 
-</div>
-</center>
+    <center>
+        <div class="text col-sm-6" style="margin-top: 140px;">
+            <span class="animated-text" data-words="Hello, It's me Khem Raj Dangi"></span>
+            <span class="wave"><img src="assets/images/Hand.gif" width="35px"></span>&nbsp;
 
-<br><br><br>
+            <div class="center">
+                <div>
+                    <img src="assets/images/khem.png" alt="" class="rounded-circle" height="200" width="200">
+                </div>
 
-<!-- JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-<script src="assets/js/particle.js"></script>
-<script src="assets/js/app.js"></script>
+                <!-- New Year Popup -->
+                <div id="newYearPopup" class="ny-popup">
+                    <span class="ny-close" onclick="closePopup()">×</span>
+                    <h4>🎉 Happy New Year 2026 🎉</h4>
+                    <p>Wishing you happiness, success & prosperity</p>
+                    <small>Closing in <span id="countdown">15</span>s</small>
+                </div>
 
-<!-- 🎉 NEW YEAR POPUP SCRIPT -->
-<script>
-let timeLeft = 15;
-const popup = document.getElementById("newYearPopup");
-const counter = document.getElementById("countdown");
+                <br/>
+                <span style="display: inline;">
+                    <span class="animated-text" data-words="Lets get connected..."></span>
+                </span>
 
-const timer = setInterval(() => {
-    timeLeft--;
-    counter.innerText = timeLeft;
-    if (timeLeft <= 0) closePopup();
-}, 1000);
+                <div>
+                    <div id="socials-container">
+                        <img src="assets/images/youtube.png" alt="My Youtube profile" class="icon" onclick="location.href='https://www.youtube.com/@kaleRaja08'" />
+                        <img src="assets/images/facebook.png" alt="My Facebook profile" class="icon" onclick="location.href='https://www.facebook.com/leo.khem.8'" />
+                        <img src="assets/images/discord.png" alt="My Discord profile" class="icon" onclick="location.href='https://discord.gg/SkMfuFCcap'" />
+                        <img src="assets/images/insta.png" alt="My Instagram profile" class="icon" onclick="location.href='https://www.instagram.com/leo.khem.005/'" />
+                        <img src="assets/images/email.png" alt="Gmail" class="icon" onclick="location.href='mailto:khemrajdangi08@gmail.com'" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
 
-function closePopup() {
-    popup.style.display = "none";
-    clearInterval(timer);
-}
-</script>
+    <br><br><br>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="assets/js/particle.js"></script>
+
+    <!-- New Year Popup Script -->
+    <script>
+        let timeLeft = 15;
+        const popup = document.getElementById("newYearPopup");
+        const counter = document.getElementById("countdown");
+
+        const timer = setInterval(() => {
+            timeLeft--;
+            counter.innerText = timeLeft;
+            if (timeLeft <= 0) closePopup();
+        }, 1000);
+
+        function closePopup() {
+            if (popup) popup.style.display = "none";
+            clearInterval(timer);
+        }
+    </script>
 
 </body>
 </html>
+
