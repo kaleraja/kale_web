@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" light-mode>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download APKs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            color: #fff;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            height: 100vh;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+        .password-container, .apk-container {
+            position: relative;
+            top: 150px;
+            text-align: center;
+            max-width: 500px;
+            margin: auto;
+        }
+        input[type="password"] {
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            margin-right: 10px;
+        }
+        button#enterBtn {
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        button#enterBtn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+        .apk-btn {
+            margin: 15px;
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .apk-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        h2 {
+            margin-bottom: 40px;
+            font-size: 36px;
+            text-shadow: 0 0 15px #fff;
+        }
+        .error-msg {
+            color: #ff4c4c;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Password Input -->
+    <div class="password-container" id="passwordSection">
+        <h2>Enter Password to Access Apps</h2>
+        <input type="password" id="passwordInput" placeholder="Enter Password" />
+        <button id="enterBtn">Enter</button>
+        <div class="error-msg" id="errorMsg"></div>
+    </div>
+
+    <!-- APK Download Section (hidden by default) -->
+    <div class="apk-container" id="apkSection" style="display:none;">
+    <h2>Download Apps Here</h2>
+    <a href="https://drive.google.com/file/d/1meWMa84e3YiHdaVZkx61c97k4_pStB4q/view?usp=drive_link" class="btn btn-success apk-btn" target="_blank">Clear TV 6.5</a>
+    <a href="https://drive.google.com/file/d/1gafMq_zPBeYFh1JrX9hGItqr2daOy18M/view?usp=sharing" class="btn btn-success apk-btn" target="_blank">Clear TV 7.9</a>
+    <a href="https://drive.google.com/file/d/1meWMa84e3YiHdaVZkx61c97k4_pStB4q/view?usp=drive_link" class="btn btn-success apk-btn" target="_blank">Truecaller Premium</a>
+    <a href="https://drive.google.com/file/d/1vhUpBqkRBxuCKRNvVg632cwEVA62DH4T/view?usp=sharing" class="btn btn-success apk-btn" target="_blank">HD STREAMz</a>
+</div>
+
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Particles Configuration -->
+    <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": ["#ffffff", "#00fffc", "#ff00ff", "#fffc00"] },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.7, "random": true },
+        "size": { "value": 4, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.3, "width": 1 },
+        "move": { "enable": true, "speed": 3, "direction": "none", "random": true, "straight": false, "bounce": true }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "repulse": { "distance": 120 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+    </script>
+
+    <!-- Password Script -->
+    <script>
+        const correctPassword = "khem@raj";
+        const enterBtn = document.getElementById("enterBtn");
+        const passwordInput = document.getElementById("passwordInput");
+        const passwordSection = document.getElementById("passwordSection");
+        const apkSection = document.getElementById("apkSection");
+        const errorMsg = document.getElementById("errorMsg");
+
+        enterBtn.addEventListener("click", function(){
+            const entered = passwordInput.value;
+            if(entered === correctPassword){
+                passwordSection.style.display = "none";
+                apkSection.style.display = "block";
+            } else {
+                errorMsg.textContent = "Incorrect password! Try again.";
+                passwordInput.value = "";
+            }
+        });
+
+        // Optional: allow Enter key to submit
+        passwordInput.addEventListener("keypress", function(e){
+            if(e.key === "Enter"){
+                enterBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>
