@@ -44,59 +44,51 @@
         gtag('config', 'G-M11CMZ12Q');
     </script>
 
-    <!-- New Year Popup CSS -->
-<style>
-.ny-popup {
-    position: absolute;
-    top: 0.1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 280px;
-     background: rgba(246, 44, 44, 0.95);
-    color: #fff;
-    padding: 15px 20px;
-    border-radius: 12px;
-    text-align: center;
-    z-index: 9999;
-    box-shadow: 0 0 20px rgba(255,255,255,0.6);
-    animation: slideDown 0.8s ease, pulse 2s infinite;
-}
-
-.ny-popup h4 { margin: 0; font-weight: bold; }
-.ny-popup p { font-size: 14px; margin: 5px 0; }
-.ny-close {
-    position: absolute;
-    top: 4px;
-    right: 8px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-/* Slide down + bounce */
-@keyframes slideDown {
-    0% { opacity: 0; transform: translate(-50%, -50px) scale(0.8); }
-    60% { opacity: 1; transform: translate(-50%, 10px) scale(1.05); }
-    80% { transform: translate(-50%, -5px) scale(0.98); }
-    100% { transform: translate(-50%, 0) scale(1); }
-}
-
-/* Pulsing glow */
-@keyframes pulse {
-    0% { box-shadow: 0 0 10px rgba(255,255,255,0.6); }
-    50% { box-shadow: 0 0 25px rgba(255,255,255,1); }
-    100% { box-shadow: 0 0 10px rgba(255,255,255,0.6); }
-}
-
-/* Fade out */
-.ny-popup.fade-out {
-    animation: fadeOut 1s forwards;
-}
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
-</style>
-
+    <!-- Animated Top-Center New Year Popup CSS -->
+    <style>
+        .ny-popup-top {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px;
+            background: rgba(0,0,0,0.95);
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 12px;
+            text-align: center;
+            z-index: 9999;
+            box-shadow: 0 0 20px rgba(255,255,255,0.6);
+            animation: slideDownTop 0.8s ease, pulse 2s infinite;
+        }
+        .ny-popup-top h4 { margin: 0; font-weight: bold; white-space: nowrap; }
+        .ny-popup-top p { font-size: 14px; margin: 5px 0; }
+        .ny-close {
+            position: absolute;
+            top: 4px;
+            right: 8px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        @keyframes slideDownTop {
+            0% { opacity: 0; transform: translate(-50%, -50px) scale(0.8); }
+            60% { opacity: 1; transform: translate(-50%, 10px) scale(1.05); }
+            80% { transform: translate(-50%, -5px) scale(0.98); }
+            100% { transform: translate(-50%, 0) scale(1); }
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 10px rgba(255,255,255,0.6); }
+            50% { box-shadow: 0 0 25px rgba(255,255,255,1); }
+            100% { box-shadow: 0 0 10px rgba(255,255,255,0.6); }
+        }
+        .ny-popup-top.fade-out {
+            animation: fadeOut 1s forwards;
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    </style>
 </head>
 
 <body class="no-scroll-preload">
@@ -116,6 +108,15 @@
         </section>
     </div>
 
+    <!-- Top-Center New Year Popup -->
+    <div id="newYearPopup" class="ny-popup-top">
+        <span class="ny-close" onclick="closePopup()">×</span>
+        <h4>🎉 Happy New Year 2026 🎉</h4>
+        <p>Wishing you happiness, success & prosperity</p>
+        <small>Closing in <span id="countdown">15</span>s</small>
+        <canvas id="confettiCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;"></canvas>
+    </div>
+
     <center>
         <div class="text col-sm-6" style="margin-top: 140px;">
             <span class="animated-text" data-words="Hello, It's me Khem Raj Dangi"></span>
@@ -125,30 +126,17 @@
                 <div>
                     <img src="assets/images/khem.png" alt="" class="rounded-circle" height="200" width="200">
                 </div>
-
-                <!-- New Year Popup -->
-                <!-- Animated New Year Popup -->
-<div id="newYearPopup" class="ny-popup animated-popup">
-    <span class="ny-close" onclick="closePopup()">×</span>
-    <h4>🎉 Happy New Year 2026 🎉</h4>
-    <p>Wishing you happiness, success & prosperity</p>
-    <small>Closing in <span id="countdown">15</span>s</small>
-    <canvas id="confettiCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;"></canvas>
-</div>
-
-
                 <br/>
                 <span style="display: inline;">
                     <span class="animated-text" data-words="Lets get connected..."></span>
                 </span>
-
                 <div>
                     <div id="socials-container">
-                        <img src="assets/images/youtube.png" alt="My Youtube profile" class="icon" onclick="location.href='https://www.youtube.com/@kaleRaja08'" />
-                        <img src="assets/images/facebook.png" alt="My Facebook profile" class="icon" onclick="location.href='https://www.facebook.com/leo.khem.8'" />
-                        <img src="assets/images/discord.png" alt="My Discord profile" class="icon" onclick="location.href='https://discord.gg/SkMfuFCcap'" />
-                        <img src="assets/images/insta.png" alt="My Instagram profile" class="icon" onclick="location.href='https://www.instagram.com/leo.khem.005/'" />
-                        <img src="assets/images/email.png" alt="Gmail" class="icon" onclick="location.href='mailto:khemrajdangi08@gmail.com'" />
+                        <img src="assets/images/youtube.png" class="icon" onclick="location.href='https://www.youtube.com/@kaleRaja08'" />
+                        <img src="assets/images/facebook.png" class="icon" onclick="location.href='https://www.facebook.com/leo.khem.8'" />
+                        <img src="assets/images/discord.png" class="icon" onclick="location.href='https://discord.gg/SkMfuFCcap'" />
+                        <img src="assets/images/insta.png" class="icon" onclick="location.href='https://www.instagram.com/leo.khem.005/'" />
+                        <img src="assets/images/email.png" class="icon" onclick="location.href='mailto:khemrajdangi08@gmail.com'" />
                     </div>
                 </div>
             </div>
@@ -165,75 +153,71 @@
     <script src="assets/js/particle.js"></script>
 
     <!-- New Year Popup Script -->
-   <script>
-let timeLeft = 15;
-const popup = document.getElementById("newYearPopup");
-const counter = document.getElementById("countdown");
+    <script>
+        let timeLeft = 15;
+        const popup = document.getElementById("newYearPopup");
+        const counter = document.getElementById("countdown");
 
-// Countdown timer
-const timer = setInterval(() => {
-    timeLeft--;
-    counter.innerText = timeLeft;
-    if (timeLeft <= 0) closePopup();
-}, 1000);
+        const timer = setInterval(() => {
+            timeLeft--;
+            counter.innerText = timeLeft;
+            if (timeLeft <= 0) closePopup();
+        }, 1000);
 
-// Close popup with fade
-function closePopup() {
-    if (popup) {
-        popup.classList.add("fade-out");
-        setTimeout(() => { popup.style.display = "none"; }, 1000);
-    }
-    clearInterval(timer);
-}
-
-// Confetti effect
-const confettiCanvas = document.getElementById('confettiCanvas');
-const ctx = confettiCanvas.getContext('2d');
-confettiCanvas.width = confettiCanvas.offsetWidth;
-confettiCanvas.height = confettiCanvas.offsetHeight;
-
-const confettiCount = 80;
-const confetti = [];
-
-for (let i=0; i<confettiCount; i++) {
-    confetti.push({
-        x: Math.random()*confettiCanvas.width,
-        y: Math.random()*confettiCanvas.height,
-        r: Math.random()*6+2,
-        d: Math.random()*confettiCount,
-        color: `hsl(${Math.random()*360}, 100%, 50%)`,
-        tilt: Math.random()*10-10
-    });
-}
-
-function drawConfetti() {
-    ctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
-    confetti.forEach(c => {
-        ctx.beginPath();
-        ctx.lineWidth = c.r;
-        ctx.strokeStyle = c.color;
-        ctx.moveTo(c.x+c.tilt+c.r/2, c.y);
-        ctx.lineTo(c.x+c.tilt, c.y+c.r);
-        ctx.stroke();
-    });
-    updateConfetti();
-}
-
-function updateConfetti() {
-    confetti.forEach(c => {
-        c.y += Math.cos(c.d) + 1 + c.r/2;
-        c.x += Math.sin(c.d);
-        if (c.y > confettiCanvas.height) {
-            c.y = -10;
-            c.x = Math.random()*confettiCanvas.width;
+        function closePopup() {
+            if (popup) {
+                popup.classList.add("fade-out");
+                setTimeout(() => { popup.style.display = "none"; }, 1000);
+            }
+            clearInterval(timer);
         }
-    });
-    requestAnimationFrame(drawConfetti);
-}
-drawConfetti();
-</script>
 
+        // Confetti effect
+        const confettiCanvas = document.getElementById('confettiCanvas');
+        const ctx = confettiCanvas.getContext('2d');
+        confettiCanvas.width = confettiCanvas.offsetWidth;
+        confettiCanvas.height = confettiCanvas.offsetHeight;
+
+        const confettiCount = 80;
+        const confetti = [];
+
+        for (let i=0; i<confettiCount; i++) {
+            confetti.push({
+                x: Math.random()*confettiCanvas.width,
+                y: Math.random()*confettiCanvas.height,
+                r: Math.random()*6+2,
+                d: Math.random()*confettiCount,
+                color: `hsl(${Math.random()*360}, 100%, 50%)`,
+                tilt: Math.random()*10-10
+            });
+        }
+
+        function drawConfetti() {
+            ctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
+            confetti.forEach(c => {
+                ctx.beginPath();
+                ctx.lineWidth = c.r;
+                ctx.strokeStyle = c.color;
+                ctx.moveTo(c.x+c.tilt+c.r/2, c.y);
+                ctx.lineTo(c.x+c.tilt, c.y+c.r);
+                ctx.stroke();
+            });
+            updateConfetti();
+        }
+
+        function updateConfetti() {
+            confetti.forEach(c => {
+                c.y += Math.cos(c.d) + 1 + c.r/2;
+                c.x += Math.sin(c.d);
+                if (c.y > confettiCanvas.height) {
+                    c.y = -10;
+                    c.x = Math.random()*confettiCanvas.width;
+                }
+            });
+            requestAnimationFrame(drawConfetti);
+        }
+        drawConfetti();
+    </script>
 
 </body>
 </html>
-
