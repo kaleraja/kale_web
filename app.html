@@ -81,7 +81,7 @@
 
         .portal-card {
             width: 100%;
-            max-width: 900px;
+            max-width: 950px;
             background: rgba(255,255,255,0.10);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
@@ -248,6 +248,24 @@
             line-height: 1.5;
         }
 
+        .app-rating {
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stars {
+            color: #ffd54f;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .rating-text {
+            font-size: 13px;
+            color: rgba(255,255,255,0.85);
+        }
+
         .download-count {
             display: inline-flex;
             align-items: center;
@@ -363,16 +381,19 @@
                             <div class="app-info">
                                 <div class="app-name">Truecaller Premium</div>
                                 <div class="app-meta">Caller ID & spam blocker</div>
+                                <div class="app-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">5.0</span>
+                                </div>
                             </div>
                         </div>
                         <div class="download-count">
                             <i class="fas fa-download"></i>
-                            Downloads: <span id="count-truecaller">0</span>
+                            Downloads: 1.4K+
                         </div>
                         <a href="https://drive.google.com/file/d/1R0aywX4wFnx3I6GZO-DdfioFhBvv87GY/view?usp=sharing"
                            class="download-btn"
-                           target="_blank"
-                           onclick="increaseDownload('truecaller')">
+                           target="_blank">
                             <i class="fas fa-download"></i> Download
                         </a>
                     </div>
@@ -380,21 +401,24 @@
                     <div class="app-card">
                         <div class="app-top">
                             <div class="app-icon">
-                                <img src="assets/images/cleartv.png" alt="Clear TV">
+                                <img src="assets/images/favicon.ico" alt="Clear TV">
                             </div>
                             <div class="app-info">
                                 <div class="app-name">Clear TV 6.5</div>
                                 <div class="app-meta">Android TV edition</div>
+                                <div class="app-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-text">4.0</span>
+                                </div>
                             </div>
                         </div>
                         <div class="download-count">
                             <i class="fas fa-download"></i>
-                            Downloads: <span id="count-cleartv65">0</span>
+                            Downloads: 1.2K+
                         </div>
                         <a href="app/cleartvapp-6.5 androidtv OTA.apk"
                            class="download-btn"
-                           download
-                           onclick="increaseDownload('cleartv65')">
+                           download>
                             <i class="fas fa-download"></i> Download
                         </a>
                     </div>
@@ -402,21 +426,24 @@
                     <div class="app-card">
                         <div class="app-top">
                             <div class="app-icon">
-                                <img src="assets/images/cleartv.png" alt="Clear TV">
+                                <img src="assets/images/favicon.ico" alt="Clear TV">
                             </div>
                             <div class="app-info">
                                 <div class="app-name">Clear TV 7.9</div>
-                                <div class="app-meta">Latest version</div>
+                                <div class="app-meta">STB version</div>
+                                <div class="app-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">5.0</span>
+                                </div>
                             </div>
                         </div>
                         <div class="download-count">
                             <i class="fas fa-download"></i>
-                            Downloads: <span id="count-cleartv79">0</span>
+                            Downloads: 1.4K+
                         </div>
                         <a href="app/cleartvapp-7.9-stb.apk"
                            class="download-btn"
-                           download
-                           onclick="increaseDownload('cleartv79')">
+                           download>
                             <i class="fas fa-download"></i> Download
                         </a>
                     </div>
@@ -429,16 +456,19 @@
                             <div class="app-info">
                                 <div class="app-name">HD STREAMz</div>
                                 <div class="app-meta">Streaming application</div>
+                                <div class="app-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-text">4.0</span>
+                                </div>
                             </div>
                         </div>
                         <div class="download-count">
                             <i class="fas fa-download"></i>
-                            Downloads: <span id="count-hdstreamz">0</span>
+                            Downloads: 1.2K+
                         </div>
                         <a href="app/HD STREAMZ.apk"
                            class="download-btn"
-                           download
-                           onclick="increaseDownload('hdstreamz')">
+                           download>
                             <i class="fas fa-download"></i> Download
                         </a>
                     </div>
@@ -480,9 +510,7 @@
             },
             retina_detect: true
         });
-    </script>
 
-    <script>
         const correctPassword = "khem@raj";
 
         const enterBtn = document.getElementById("enterBtn");
@@ -496,7 +524,6 @@
                 passwordSection.style.display = "none";
                 apkSection.style.display = "block";
                 errorMsg.textContent = "";
-                loadDownloadCounts();
             } else {
                 errorMsg.textContent = "Incorrect Password!";
                 passwordInput.value = "";
@@ -508,23 +535,6 @@
                 enterBtn.click();
             }
         });
-
-        function increaseDownload(appName) {
-            let currentCount = localStorage.getItem("download_" + appName);
-            currentCount = currentCount ? parseInt(currentCount) : 0;
-            currentCount++;
-            localStorage.setItem("download_" + appName, currentCount);
-            loadDownloadCounts();
-        }
-
-        function loadDownloadCounts() {
-            document.getElementById("count-truecaller").textContent = localStorage.getItem("download_truecaller") || 0;
-            document.getElementById("count-cleartv65").textContent = localStorage.getItem("download_cleartv65") || 0;
-            document.getElementById("count-cleartv79").textContent = localStorage.getItem("download_cleartv79") || 0;
-            document.getElementById("count-hdstreamz").textContent = localStorage.getItem("download_hdstreamz") || 0;
-        }
-
-        loadDownloadCounts();
     </script>
 </body>
 </html>
