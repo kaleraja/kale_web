@@ -166,7 +166,7 @@ const documents = [
   },
   {
     name: "Driving License",
-    image: "assets/images/documents/license.jpg",
+    image: "assets/images/documents/license.jpeg",
     category: "Personal",
     favorite: false
   }
