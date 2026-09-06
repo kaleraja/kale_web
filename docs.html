@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documents — Khem Raj Dangi</title>
+  <link rel="stylesheet" href="assets/css/docs.css">
+</head>
+<body>
+
+
+  <!-- OTP SECURITY GATE -->
+  <div class="otp-gate" id="otpGate">
+    <div class="otp-card">
+      <div class="otp-logo">
+        <img src="assets/images/kr.png" alt="KR logo"
+             onerror="this.style.display='none';this.parentElement.classList.add('otp-fallback')">
+        <span>KR</span>
+      </div>
+
+      <div class="otp-badge">PRIVATE VAULT</div>
+      <h1>Verify your access</h1>
+      <p class="otp-subtitle">
+        Enter the 4-digit verification code to open vault.
+      </p>
+
+      <div class="otp-contact">
+        <span class="otp-lock">⌾</span>
+        <div>
+          <small>Verification</small>
+          <strong id="otpDestination">Protected access</strong>
+        </div>
+      </div>
+
+      <div class="otp-inputs" id="otpInputs">
+        <input inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="Digit 1">
+        <input inputmode="numeric" maxlength="1" aria-label="Digit 2">
+        <input inputmode="numeric" maxlength="1" aria-label="Digit 3">
+        <input inputmode="numeric" maxlength="1" aria-label="Digit 4">
+      </div>
+
+      <div class="otp-error" id="otpError"></div>
+
+      <button class="otp-verify" id="verifyOtp">Verify & Continue <span>→</span></button>
+
+      <div class="otp-resend">
+        <span id="otpTimer">Resend code in 00:30</span>
+        <button id="resendOtp" disabled>Resend code</button>
+      </div>
+
+      <div class="otp-note">
+        <!-- <span>KR</span> -->
+        <span>Like to hang out with people who make me forget to look at my phone, laugh without trying, lose track of time, and enjoy every little moment.
+</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="docs-app">
+
+    <header class="docs-header">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><img src="assets/images/kr.png" alt="KR logo" onerror="this.style.display='none';this.parentElement.classList.add('logo-fallback')"><span>KR</span></span>
+        <span>
+          <strong>Documents</strong>
+          <small>Personal vault</small>
+        </span>
+      </a>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="lockBtn" aria-label="Lock documents" title="Lock documents">⌑</button>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">☾</button>
+        <a href="index.html" class="back-btn">← Back to website</a>
+      </div>
+    </header>
+
+    <main class="docs-main">
+
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Khem Raj Dangi</div>
+          <h1>My documents<br>
+            <!-- <span>beautifully organized.</span> -->
+          </h1>
+          <!-- <p>Keep your document photos in one place and open them instantly in a secure full-screen viewer.</p> -->
+        </div>
+        <div class="hero-badge">
+          <span class="status-dot"></span>
+          Live now
+        </div>
+      </section>
+
+      <section class="toolbar">
+        <div class="search">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Search documents...">
+          <kbd>⌘ KR</kbd>
+        </div>
+
+        <div class="toolbar-right">
+          <div class="filters" id="filters">
+            <button class="filter active" data-filter="All">All</button>
+            <button class="filter" data-filter="Personal">Personal</button>
+            <button class="filter" data-filter="Education">Education</button>
+            <button class="filter" data-filter="Finance">Finance</button>
+            <button class="filter" data-filter="Work">Work</button>
+            <button class="filter" data-filter="Other">Other</button>
+          </div>
+          <button class="view-btn active" id="gridView" title="Grid view">▦</button>
+          <button class="view-btn" id="listView" title="List view">☷</button>
+        </div>
+      </section>
+
+      <section class="documents-section">
+        <div class="section-heading">
+          <div>
+            <h2>My Documents</h2>
+            <span id="resultCount">0 documents</span>
+          </div>
+          <span class="storage-label">Documents <code></code></span>
+        </div>
+
+        <div class="documents-grid" id="documentsGrid"></div>
+
+        <div class="empty" id="emptyState" hidden>
+          <div class="empty-icon">⌕</div>
+          <h3>No documents found</h3>
+          <p>Check the document name or category in <b>assets/js/docs.js</b>.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- FULL-SCREEN VIEWER -->
+  <div class="viewer" id="viewer" aria-hidden="true">
+    <div class="viewer-top">
+      <div class="viewer-title">
+        <div class="viewer-file-icon">▣</div>
+        <div>
+          <strong id="viewerName">Document</strong>
+          <small id="viewerCategory">Personal</small>
+        </div>
+      </div>
+
+      <div class="viewer-controls">
+        <button id="favoriteBtn" title="Favorite">☆</button>
+        <button id="zoomOutBtn" title="Zoom out">−</button>
+        <button id="zoomResetBtn" title="Reset zoom">100%</button>
+        <button id="zoomInBtn" title="Zoom in">+</button>
+        <button id="viewerClose" class="close-btn" title="Close">×</button>
+      </div>
+    </div>
+
+    <button class="viewer-arrow left" id="prevBtn" aria-label="Previous">‹</button>
+
+    <div class="viewer-stage" id="viewerStage">
+      <div class="viewer-loading" id="viewerLoading">
+        <span></span>
+        Loading document…
+      </div>
+      <img id="viewerImage" draggable="false" alt="Document preview">
+    </div>
+
+    <button class="viewer-arrow right" id="nextBtn" aria-label="Next">›</button>
+
+    <div class="viewer-bottom">
+      <span id="viewerCounter">1 / 1</span>
+      <span class="viewer-help">← → Navigate &nbsp; • &nbsp; Esc Close &nbsp; • &nbsp; + − Zoom</span>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="assets/js/docs.js"></script>
+</body>
+</html>
