@@ -1,17 +1,4 @@
 
-/*
-  OTP VERIFICATION
-  --------------------------------------------
-  FRONTEND DEMO MODE:
-  demoOtp = "3038"
-
-  For real security, set USE_BACKEND_OTP = true and create:
-  POST /api/verify-otp
-  body: { otp: "123456" }
-  The server must validate the OTP and return { verified: true }.
-
-  Do NOT keep a real secret OTP inside this JavaScript file.
-*/
 const USE_BACKEND_OTP = false;
 const demoOtp = "3038";
 const OTP_SESSION_KEY = "kale_docs_otp_verified";
@@ -156,21 +143,7 @@ document.getElementById("lockBtn")?.addEventListener("click", () => {
 });
 
 
-/*
-  DOCS CONFIG
-  Put your document photos in:
-  assets/images/documents/
 
-  Then add/edit entries below.
-
-  Example:
-  {
-    name: "Citizenship Certificate",
-    image: "assets/images/documents/citizenship.jpg",
-    category: "Personal",
-    favorite: true
-  }
-*/
 
 const documents = [
   {
@@ -180,8 +153,14 @@ const documents = [
     favorite: true
   },
   {
-    name: "Passport",
-    image: "assets/images/documents/passport.jpg",
+    name: "National Identity Card",
+    image: "assets/images/documents/nid.jpg",
+    category: "Personal",
+    favorite: true
+  },
+  {
+    name: "Permanent Account Number Card",
+    image: "assets/images/documents/pan.jpg",
     category: "Personal",
     favorite: false
   },
@@ -190,25 +169,21 @@ const documents = [
     image: "assets/images/documents/license.jpg",
     category: "Personal",
     favorite: false
-  },
-  {
-    name: "Education Certificate",
-    image: "assets/images/documents/certificate.jpg",
-    category: "Education",
-    favorite: true
-  },
-  {
-    name: "Tax Document",
-    image: "assets/images/documents/tax-document.jpg",
-    category: "Finance",
-    favorite: false
-  },
-  {
-    name: "Business Document",
-    image: "assets/images/documents/business.jpg",
-    category: "Work",
-    favorite: false
   }
+  // ,
+  
+  // {
+  //   name: "Tax Document",
+  //   image: "assets/images/documents/tax-document.jpg",
+  //   category: "Finance",
+  //   favorite: false
+  // },
+  // {
+  //   name: "Business Document",
+  //   image: "assets/images/documents/business.jpg",
+  //   category: "Work",
+  //   favorite: false
+  // }
 ];
 
 const $ = s => document.querySelector(s);
