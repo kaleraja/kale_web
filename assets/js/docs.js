@@ -12,13 +12,16 @@ const verifyOtpBtn = document.getElementById("verifyOtp");
 const resendOtpBtn = document.getElementById("resendOtp");
 const otpTimer = document.getElementById("otpTimer");
 
-function isOtpVerified() {
-  return sessionStorage.getItem(OTP_SESSION_KEY) === "1";
-}
+// function isOtpVerified() {
+//   return sessionStorage.getItem(OTP_SESSION_KEY) === "1";
+// }
+
+const OTP_SESSION_KEY = "kale_docs_otp_verified";
+
 function unlockDocs() {
   otpGate.classList.add("hidden");
   document.body.classList.remove("otp-locked");
-  sessionStorage.setItem(OTP_SESSION_KEY, "1");
+  // sessionStorage.setItem(OTP_SESSION_KEY, "1");
 }
 function lockDocs() {
   sessionStorage.removeItem(OTP_SESSION_KEY);
@@ -131,12 +134,20 @@ resendOtpBtn.addEventListener("click", () => {
   if (!USE_BACKEND_OTP) showToast("New demo OTP: 3038");
 });
 
-if (isOtpVerified()) unlockDocs();
-else {
-  otpGate.classList.remove("hidden");
-  startOtpTimer();
-  setTimeout(() => otpInputs[0]?.focus(), 100);
-}
+// if (isOtpVerified()) unlockDocs();
+// else {
+//   otpGate.classList.remove("hidden");
+//   startOtpTimer();
+//   setTimeout(() => otpInputs[0]?.focus(), 100);
+// }
+
+// Require OTP every time the page loads/reloads
+otpGate.classList.remove("hidden");
+startOtpTimer();
+
+setTimeout(() => {
+  otpInputs[0]?.focus();
+}, 100);
 
 document.getElementById("lockBtn")?.addEventListener("click", () => {
   lockDocs();
