@@ -184,7 +184,7 @@ const showCards = () => {
       ? `
         <li>
           <a href="${Previewlink}" class="social-icon"
-             target="_blank" rel="noopener noreferrer"
+             target="_blank" rel="noopener"
              aria-label="View photos">
             <svg xmlns="http://www.w3.org/2000/svg"
                  width="30" height="25" viewBox="0 0 24 24"
