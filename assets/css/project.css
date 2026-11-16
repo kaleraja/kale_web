@@ -856,3 +856,49 @@ SVG ANIMATIONS PROJECT PAGE
   animation-duration: 3.3s;
   transform-origin: 785.132px 295.833px;
 }
+
+
+
+/* Travel icons visibility fix for iPhone and touch devices */
+.travel-icons {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    z-index: 9999;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto;
+}
+
+.travel-icons a {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative;
+    z-index: 9999;
+}
+
+.travel-icons svg {
+    display: block !important;
+    width: 22px;
+    height: 22px;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Show card content on phones and touch devices */
+@media (hover: none), (pointer: coarse) {
+    .skill-card .data {
+        transform: translateY(0) !important;
+    }
+
+    .travel-icons {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
