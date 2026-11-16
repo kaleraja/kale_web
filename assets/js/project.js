@@ -112,46 +112,131 @@ const projects = [
 ];
 
 // function for rendering project cards data
+// const showCards = () => {
+//   let output = "";
+//   projects.forEach(({ title, cardImage, Previewlink, Githublink }) => {
+//     output += `       
+//         <div class="column skill-card card" style="margin: 15px"data-aos="zoom-in-up" data-aos-easing="linear" data-aos-delay="300" data-aos-duration="600" >
+//           <div class="wrapper" style="background: url(${cardImage}) center / cover no-repeat;">
+//             <div class="header">
+//             </div>
+//             <div class="data">
+//               <div class="content">
+//               <div class="title-div">
+//                 <h1 class="title"><a href="#">${title}</a></h1>
+//                 </div>
+//             <ul class="menu-content"><br>
+//                   <ul>
+//   <!-- Video Icon -->
+//   <li><a href="${Githublink}" class="social-icon">
+//     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video">
+//       <polygon points="23 7 16 12 23 17 23 7"></polygon>
+//       <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+//     </svg>
+//   </a></li>
+
+//   <!-- Photo Icon -->
+//   <li><a href="${Previewlink}" class="social-icon">
+//     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image">
+//       <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+//       <circle cx="8.5" cy="8.5" r="1.5"></circle>
+//       <polyline points="21 15 16 10 5 21"></polyline>
+//     </svg>
+//   </a></li>
+// </ul>
+//               </div>
+//             </div>
+//           </div>
+//         </div>`;
+//   });
+//   projectcards.innerHTML = output;
+// };
+// document.addEventListener("DOMContentLoaded", showCards);
+
+
+
 const showCards = () => {
   let output = "";
-  projects.forEach(({ title, cardImage, Previewlink, Githublink }) => {
-    output += `       
-        <div class="column skill-card card" style="margin: 15px"data-aos="zoom-in-up" data-aos-easing="linear" data-aos-delay="300" data-aos-duration="600" >
-          <div class="wrapper" style="background: url(${cardImage}) center / cover no-repeat;">
-            <div class="header">
-            </div>
-            <div class="data">
-              <div class="content">
-              <div class="title-div">
-                <h1 class="title"><a href="#">${title}</a></h1>
-                </div>
-            <ul class="menu-content"><br>
-                  <ul>
-  <!-- Video Icon -->
-  <li><a href="${Githublink}" class="social-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video">
-      <polygon points="23 7 16 12 23 17 23 7"></polygon>
-      <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-    </svg>
-  </a></li>
 
-  <!-- Photo Icon -->
-  <li><a href="${Previewlink}" class="social-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image">
-      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-      <circle cx="8.5" cy="8.5" r="1.5"></circle>
-      <polyline points="21 15 16 10 5 21"></polyline>
-    </svg>
-  </a></li>
-</ul>
+  projects.forEach(({ title, cardImage, Previewlink, Githublink }) => {
+
+    // Video icon - show only if video link exists
+    const videoIcon = Githublink
+      ? `
+        <li>
+          <a href="${Githublink}" class="social-icon"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Watch video">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="30" height="25" viewBox="0 0 24 24"
+                 fill="none" stroke="#fff" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"></polygon>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+            </svg>
+          </a>
+        </li>
+      `
+      : "";
+
+    // Photo icon - show only if photo link exists
+    const photoIcon = Previewlink
+      ? `
+        <li>
+          <a href="${Previewlink}" class="social-icon"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="View photos">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="30" height="25" viewBox="0 0 24 24"
+                 fill="none" stroke="#fff" stroke-width="1.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+          </a>
+        </li>
+      `
+      : "";
+
+    output += `
+      <div class="column skill-card card" style="margin: 15px"
+           data-aos="zoom-in-up"
+           data-aos-easing="linear"
+           data-aos-delay="300"
+           data-aos-duration="600">
+
+        <div class="wrapper"
+             style="background: url(${cardImage}) center / cover no-repeat;">
+
+          <div class="header"></div>
+
+          <div class="data">
+            <div class="content">
+
+              <div class="title-div">
+                <h1 class="title">
+                  <a href="#">${title}</a>
+                </h1>
               </div>
+
+              <ul class="travel-icons">
+                ${videoIcon}
+                ${photoIcon}
+              </ul>
+
             </div>
           </div>
-        </div>`;
+        </div>
+      </div>
+    `;
   });
+
   projectcards.innerHTML = output;
 };
+
 document.addEventListener("DOMContentLoaded", showCards);
+
 
 function myFunction() {
   // Declare variables
