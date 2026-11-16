@@ -859,46 +859,91 @@ SVG ANIMATIONS PROJECT PAGE
 
 
 
-/* Travel icons visibility fix for iPhone and touch devices */
-.travel-icons {
+/* =====================================
+   TRAVEL CARD ICONS - CROSS BROWSER FIX
+   Preserve original hover animation
+===================================== */
+
+/* Keep original card animation */
+.card .data {
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+}
+
+/* Reveal card content on hover or focus */
+.skill-card .wrapper:hover .data,
+.skill-card .wrapper:focus-within .data {
+    -webkit-transform: translateY(0) !important;
+    transform: translateY(0) !important;
+}
+
+/* Travel icons */
+.skill-card .travel-icons {
     display: flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    position: relative;
-    z-index: 9999;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 15px !important;
+
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 10px !important;
+
+    position: relative !important;
+    z-index: 9999 !important;
 }
 
-.travel-icons a {
+/* Individual icons */
+.skill-card .travel-icons li {
     display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: relative;
-    z-index: 9999;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 2px !important;
 }
 
-.travel-icons svg {
+.skill-card .travel-icons a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    position: relative !important;
+    z-index: 9999 !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/* SVG visibility */
+.skill-card .travel-icons svg {
     display: block !important;
-    width: 22px;
-    height: 22px;
+    width: 30px !important;
+    height: 25px !important;
+
+    stroke: #fff !important;
+    fill: none !important;
+
     opacity: 1 !important;
     visibility: visible !important;
+
+    margin-top: 20px !important;
 }
 
-/* Show card content on phones and touch devices */
-@media (hover: none), (pointer: coarse) {
-    .skill-card .data {
+/* Icon hover effect */
+.skill-card .travel-icons a:hover svg {
+    stroke: #fff !important;
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+/* Safari and Chrome touch-device hover support */
+@media (hover: none) {
+    .skill-card .wrapper:hover .data,
+    .skill-card .wrapper:focus-within .data {
+        -webkit-transform: translateY(0) !important;
         transform: translateY(0) !important;
     }
-
-    .travel-icons {
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
 }
+
+
 
