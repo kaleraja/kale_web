@@ -179,6 +179,8 @@ const showCards = () => {
       `
       : "";
 
+    
+
     // Photo icon - show only if photo link exists
     const photoIcon = Previewlink
       ? `
@@ -234,6 +236,11 @@ const showCards = () => {
 
   projectcards.innerHTML = output;
 };
+
+<ul class="travel-icons">
+    ${videoIcon}
+    ${photoIcon}
+</ul>
 
 document.addEventListener("DOMContentLoaded", showCards);
 
